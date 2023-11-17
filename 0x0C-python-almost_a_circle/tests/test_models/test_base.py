@@ -17,6 +17,19 @@ class TestBase(unittest.TestCase):
 
         base = Base(id=3)
         self.assertEqual(base.id, 3)
+    
+    def test_auto_id_assigning(self):
+        '''Test auto-assignment of id when creating instance'''
+
+        base = Base()
+        self.assertIsNotNone(base.id)
+
+    def test_auto_id_incrementation(self):
+        '''Test that ids are incremented correctly'''
+
+        base1 = Base()
+        base2 = Base()
+        self.assertEqual(base2.id, base1.id+1)
 
 if __name__ == '__main__':
     unittest.main()
