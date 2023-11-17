@@ -11,7 +11,12 @@ class TestBase(unittest.TestCase):
 
         base = Base()
         self.assertEqual(str(type(base)), "<class 'models.base.Base'>")
-       
+
+    def test_create_instance_with_id(self):
+        '''Test if can create an instance of Base with passing an id'''
+
+        base = Base(id=3)
+        self.assertEqual(base.id, 3)
 
 if __name__ == '__main__':
     unittest.main()
