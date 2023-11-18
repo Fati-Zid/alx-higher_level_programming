@@ -159,5 +159,47 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square_instance.x, 3)
         self.assertEqual(square_instance.y, 4)
 
+    def test_to_dictionary_returns_dict(self):
+        '''Returns dictionary representation of the object.'''
+
+        square_instance = Square(5, 2, 3, 1)
+        result = square_instance.to_dictionary()
+        self.assertIsInstance(result, dict)
+
+    def test_to_dictionary_returns_dict_with_4_keys(self):
+        '''Returns dictionary with four keys: type, width, height and position.'''
+
+        square_instance = Square(5, 2, 3, 1)
+        result = square_instance.to_dictionary()
+        self.assertEqual(len(result), 4)
+
+    def test_to_dictionary_contains_id(self):
+        '''Dictionary contains key "id".'''
+
+        square_instance = Square(5, 2, 3, 1)
+        result = square_instance.to_dictionary()
+        self.assertIn('id', result)
+
+    def test_to_dictionary_contains_size(self):
+        '''Dictionary contains key "size".'''
+
+        square_instance = Square(5, 2, 3, 1)
+        result = square_instance.to_dictionary()
+        self.assertIn('size', result)
+
+    def test_to_dictionary_contains_x(self):
+        '''Dictionary contains key "position" which is a list containing two elements - x and y coordinates.'''
+
+        square_instance = Square(5, 2, 3, 1)
+        result = square_instance.to_dictionary()
+        self.assertIn('x', result)
+
+    def test_to_dictionary_contains_y(self):
+        '''contain y'''
+        
+        square_instance = Square(5, 2, 3, 1)
+        result = square_instance.to_dictionary()
+        self.assertIn('y', result)
+
 if __name__ == '__main__':
     unittest.main()
