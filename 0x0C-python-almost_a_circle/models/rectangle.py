@@ -87,6 +87,16 @@ class Rectangle(Base):
         for _ in range(self.__height):
             print("#" * self.__width)
     
+    def to_dictionary(self):
+        '''Return the dictionary representation of the Rectangle.'''
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
+    
     def __str__(self):
         '''Return a string representation of the Rectangle.'''
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"

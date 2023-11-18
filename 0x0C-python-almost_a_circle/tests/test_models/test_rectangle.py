@@ -244,5 +244,54 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle_instance.x, 2)
         self.assertEqual(rectangle_instance.y, 1)
 
+    def test_to_dictionary_returns_dict(self):
+        '''Returns a dictionary with all the instance variables as key-value pairs.'''
+
+        rectangle_instance = Rectangle(5, 4, 2, 3, 1)
+        result = rectangle_instance.to_dictionary()
+        self.assertIsInstance(result, dict)
+
+    def test_to_dictionary_returns_dict_with_5_keys(self):
+        '''Returns a dictionary with five keys: id, width, height, x, y.'''
+
+        rectangle_instance = Rectangle(5, 4, 2, 3, 1)
+        result = rectangle_instance.to_dictionary()
+        self.assertEqual(len(result), 5)
+
+    def test_to_dictionary_contains_id(self):
+        '''Contains an entry for 'id' in to_dictionary().'''
+
+        rectangle_instance = Rectangle(5, 4, 2, 3, 1)
+        result = rectangle_instance.to_dictionary()
+        self.assertIn('id', result)
+
+    def test_to_dictionary_contains_width(self):
+        '''Contains an entry for 'width' in to_dictionary().'''
+
+        rectangle_instance = Rectangle(5, 4, 2, 3, 1)
+        result = rectangle_instance.to_dictionary()
+        self.assertIn('width', result)
+
+    def test_to_dictionary_contains_height(self):
+        '''Contains an entry for 'height' in to_dictionary().'''
+
+        rectangle_instance = Rectangle(5, 4, 2, 3, 1)
+        result = rectangle_instance.to_dictionary()
+        self.assertIn('height', result)
+
+    def test_to_dictionary_contains_x(self):
+        '''Contains an entry for 'x' in to_dictionary().'''
+
+        rectangle_instance = Rectangle(5, 4, 2, 3, 1)
+        result = rectangle_instance.to_dictionary()
+        self.assertIn('x', result)
+
+    def test_to_dictionary_contains_y(self):
+        '''Contains an entry for 'y' in to_dictionary().'''
+        
+        rectangle_instance = Rectangle(5, 4, 2, 3, 1)
+        result = rectangle_instance.to_dictionary()
+        self.assertIn('y', result)
+
 if __name__ == '__main__':
     unittest.main()

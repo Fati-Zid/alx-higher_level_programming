@@ -149,7 +149,7 @@ class TestSquare(unittest.TestCase):
 
     def test_update_with_kwargs_id_size_x_and_y(self):
         '''Update square instance using kwargs (size=None, x=None, y=None, id).'''
-        
+
         square_instance = Square(5)
         square_instance.update(id=89, size=8, x=3, y=4)
         self.assertEqual(square_instance.id, 89)
