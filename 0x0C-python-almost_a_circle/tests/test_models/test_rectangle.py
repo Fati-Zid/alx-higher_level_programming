@@ -159,7 +159,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_display_for_rectangle_1_1(self):
         '''Display a rectangle with width=1 and height=1.'''
-        
+
         rectangle_instance = Rectangle(1, 1)
         captured_output = StringIO()
         sys.stdout = captured_output
@@ -167,6 +167,40 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = sys.__stdout__
         expected_output = "#\n"
         self.assertEqual(captured_output.getvalue(), expected_output)
+
+    def test_str_of_rectangle_10_12(self):
+        '''Return the string representation of a rectangle with width=10 and height=12.'''
+
+        rectangle_instance = Rectangle(10, 12)
+        expected_output = "[Rectangle] (1) 0/0 - 10/12"
+        self.assertEqual(str(rectangle_instance), expected_output)
+
+    def test_str_of_rectangle_12_10(self):
+        '''Return the string representation of a rectangle with width=12 and height=10.'''
+
+        rectangle_instance = Rectangle(12, 10)
+        expected_output = "[Rectangle] (2) 0/0 - 12/10"
+        self.assertEqual(str(rectangle_instance), expected_output)
+
+    def test_str_of_rectangle_12_10_with_x(self):
+        '''Return the string representation of a rectangle with width=12 and height=10 starting at x=5 y=6.'''
+
+        rectangle_instance = Rectangle(12, 10, 3)
+        expected_output = "[Rectangle] (3) 3/0 - 12/10"
+        self.assertEqual(str(rectangle_instance), expected_output)
+
+    def test_str_of_rectangle_12_10_with_x_and_y(self):
+        '''12 10'''
+
+        rectangle_instance = Rectangle(12, 10, 3, 6)
+        expected_output = "[Rectangle] (4) 3/6 - 12/10"
+        self.assertEqual(str(rectangle_instance), expected_output)
+
+    def test_str_of_rectangle_12_10_with_x_y_and_id(self):
+        '''12 10'''
+        rectangle_instance = Rectangle(12, 10, 3, 6, 8)
+        expected_output = "[Rectangle] (8) 3/6 - 12/10"
+        self.assertEqual(str(rectangle_instance), expected_output)
 
 if __name__ == '__main__':
     unittest.main()
