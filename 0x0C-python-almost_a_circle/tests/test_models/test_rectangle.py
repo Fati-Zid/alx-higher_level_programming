@@ -198,10 +198,51 @@ class TestRectangle(unittest.TestCase):
 
     def test_str_of_rectangle_12_10_with_x_y_and_id(self):
         '''12 10'''
-        
+
         rectangle_instance = Rectangle(12, 10, 3, 6, 8)
         expected_output = "[Rectangle] (8) 3/6 - 12/10"
         self.assertEqual(str(rectangle_instance), expected_output)
+
+    def test_update_id(self):
+        '''Update id attribute when calling update_id method.'''
+        rectangle_instance = Rectangle(10, 12)
+        rectangle_instance.update(12)
+        self.assertEqual(rectangle_instance.id, 12)
+
+    def test_update_id_and_width(self):
+        '''Update id and width attributes when calling update_id method.'''
+        rectangle_instance = Rectangle(10, 12)
+        rectangle_instance.update(12, 4)
+        self.assertEqual(rectangle_instance.id, 12)
+        self.assertEqual(rectangle_instance.width, 4)
+
+    def test_update_id_width_and_height(self):
+        '''Update id, width and height attributes when calling update_id method.'''
+        rectangle_instance = Rectangle(10, 12)
+        rectangle_instance.update(12, 4, 3)
+        self.assertEqual(rectangle_instance.id, 12)
+        self.assertEqual(rectangle_instance.width, 4)
+        self.assertEqual(rectangle_instance.height, 3)
+
+    def test_update_id_width_height_and_x(self):
+        '''Update id, width, height and x attributes when calling update_id method.'''
+        rectangle_instance = Rectangle(10, 12)
+        rectangle_instance.update(12, 4, 3, 2)
+        self.assertEqual(rectangle_instance.id, 12)
+        self.assertEqual(rectangle_instance.width, 4)
+        self.assertEqual(rectangle_instance.height, 3)
+        self.assertEqual(rectangle_instance.x, 2)
+
+    def test_update_id_width_height_x_and_y(self):
+        ''' update wieght height x,y'''
+
+        rectangle_instance = Rectangle(10, 12)
+        rectangle_instance.update(12, 4, 3, 2, 1)
+        self.assertEqual(rectangle_instance.id, 12)
+        self.assertEqual(rectangle_instance.width, 4)
+        self.assertEqual(rectangle_instance.height, 3)
+        self.assertEqual(rectangle_instance.x, 2)
+        self.assertEqual(rectangle_instance.y, 1)
 
 if __name__ == '__main__':
     unittest.main()
