@@ -45,7 +45,7 @@ class TestSquare(unittest.TestCase):
 
     def test_create_square_with_size_x_y_and_id(self):
         '''Create a square with size, x, y and id attributes.'''
-        
+
         square_instance = Square(5, 7, 2, 89)
         self.assertEqual(square_instance.size, 5)
         self.assertEqual(square_instance.width, 5)
@@ -53,6 +53,31 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square_instance.x, 7)
         self.assertEqual(square_instance.y, 2)
         self.assertEqual(square_instance.id, 89)
+
+    def test_size_getter_and_setter(self):
+        '''Test getters and setters for size attribute of square.'''
+
+        square_instance = Square(10)
+        self.assertEqual(square_instance.size, 10)
+
+        square_instance.size = 12
+        self.assertEqual(square_instance.size, 12)
+        self.assertEqual(square_instance.width, 12)
+        self.assertEqual(square_instance.height, 12)
+
+    def test_set_size_with_non_integer_value(self):
+        '''Set the size to non-integer value should raise an exception.'''
+
+        square_instance = Square(10)
+        with self.assertRaises(TypeError):
+            square_instance.size = "invalid"
+
+    def test_set_size_with_non_positive_value(self):
+        '''Set the size to non-positive integer value should raise an exception.'''
+        
+        square_instance = Square(10)
+        with self.assertRaises(ValueError):
+            square_instance.size = 0
 
 if __name__ == '__main__':
     unittest.main()
