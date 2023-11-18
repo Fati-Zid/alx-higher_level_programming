@@ -109,9 +109,64 @@ class TestRectangle(unittest.TestCase):
 
     def test_area_of_rectangle_10_12_with_x_and_y(self):
         '''Calculate area of rectangle with width=10, height=12, x=4 and y=7.'''
-        
+
         rectangle_instance = Rectangle(10, 12, 1, 3)
         self.assertEqual(rectangle_instance.area(), 120)
+
+    def test_display_for_rectangle_10_12(self):
+        '''Display a rectangle with width=10 and height=12.'''
+
+        rectangle_instance = Rectangle(10, 12)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        rectangle_instance.display()
+        sys.stdout = sys.__stdout__
+        expected_output = "##########\n" * 12
+        self.assertEqual(captured_output.getvalue(), expected_output)
+
+    def test_display_for_rectangle_1_12(self):
+        '''Display a rectangle with width=1 and height=12.'''
+
+        rectangle_instance = Rectangle(1, 12)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        rectangle_instance.display()
+        sys.stdout = sys.__stdout__
+        expected_output = "#\n" * 12
+        self.assertEqual(captured_output.getvalue(), expected_output)
+
+    def test_display_for_rectangle_10_1(self):
+        '''Display a rectangle with width=10 and height=1.'''
+
+        rectangle_instance = Rectangle(10, 1)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        rectangle_instance.display()
+        sys.stdout = sys.__stdout__
+        expected_output = "##########\n"
+        self.assertEqual(captured_output.getvalue(), expected_output)
+
+    def test_display_for_rectangle_3_3(self):
+        '''Display a rectangle with width=3 and height=3.'''
+
+        rectangle_instance = Rectangle(3, 3)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        rectangle_instance.display()
+        sys.stdout = sys.__stdout__
+        expected_output = "###\n###\n###\n"
+        self.assertEqual(captured_output.getvalue(), expected_output)
+
+    def test_display_for_rectangle_1_1(self):
+        '''Display a rectangle with width=1 and height=1.'''
+        
+        rectangle_instance = Rectangle(1, 1)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        rectangle_instance.display()
+        sys.stdout = sys.__stdout__
+        expected_output = "#\n"
+        self.assertEqual(captured_output.getvalue(), expected_output)
 
 if __name__ == '__main__':
     unittest.main()
