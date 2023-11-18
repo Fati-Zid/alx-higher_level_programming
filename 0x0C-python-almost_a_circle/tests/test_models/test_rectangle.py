@@ -198,6 +198,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_str_of_rectangle_12_10_with_x_y_and_id(self):
         '''12 10'''
+        
         rectangle_instance = Rectangle(12, 10, 3, 6, 8)
         expected_output = "[Rectangle] (8) 3/6 - 12/10"
         self.assertEqual(str(rectangle_instance), expected_output)
