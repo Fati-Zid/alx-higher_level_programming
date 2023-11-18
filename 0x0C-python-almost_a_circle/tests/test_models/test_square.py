@@ -74,10 +74,90 @@ class TestSquare(unittest.TestCase):
 
     def test_set_size_with_non_positive_value(self):
         '''Set the size to non-positive integer value should raise an exception.'''
-        
+
         square_instance = Square(10)
         with self.assertRaises(ValueError):
             square_instance.size = 0
+    
+    def test_update_with_args_id(self):
+        '''Update square instance using args (size, x, y, id).'''
+
+        square_instance = Square(5)
+        square_instance.update(89)
+        self.assertEqual(square_instance.id, 89)
+
+    def test_update_with_args_id_and_size(self):
+        '''Update square instance using args (size, x, y, id).'''
+
+        square_instance = Square(5)
+        square_instance.update(89, 6)
+        self.assertEqual(square_instance.id, 89)
+        self.assertEqual(square_instance.size, 6)
+        self.assertEqual(square_instance.width, 6)
+        self.assertEqual(square_instance.height, 6)
+
+    def test_update_with_args_id_size_and_x(self):
+        '''Update square instance using args (size, x, y, id).'''
+
+        square_instance = Square(5)
+        square_instance.update(89, 6, 2)
+        self.assertEqual(square_instance.id, 89)
+        self.assertEqual(square_instance.size, 6)
+        self.assertEqual(square_instance.width, 6)
+        self.assertEqual(square_instance.height, 6)
+        self.assertEqual(square_instance.x, 2)
+
+    def test_update_with_args_id_size_x_and_y(self):
+        '''Update square instance using args (size, x, y, id).'''
+
+        square_instance = Square(5)
+        square_instance.update(89, 6, 2, 3)
+        self.assertEqual(square_instance.id, 89)
+        self.assertEqual(square_instance.size, 6)
+        self.assertEqual(square_instance.width, 6)
+        self.assertEqual(square_instance.height, 6)
+        self.assertEqual(square_instance.x, 2)
+        self.assertEqual(square_instance.y, 3)
+
+    def test_update_with_kwargs_id(self):
+        '''Update square instance using kwargs (size=None, x=None, y=None, id).'''
+
+        square_instance = Square(5)
+        square_instance.update(id=89)
+        self.assertEqual(square_instance.id, 89)
+
+    def test_update_with_kwargs_id_and_size(self):
+        '''Update square instance using kwargs (size=None, x=None, y=None, id).'''
+
+        square_instance = Square(5)
+        square_instance.update(id=89, size=8)
+        self.assertEqual(square_instance.id, 89)
+        self.assertEqual(square_instance.size, 8)
+        self.assertEqual(square_instance.width, 8)
+        self.assertEqual(square_instance.height, 8)
+
+    def test_update_with_kwargs_id_size_and_x(self):
+        '''Update square instance using kwargs (size=None, x=None, y=None, id).'''
+
+        square_instance = Square(5)
+        square_instance.update(id=89, size=8, x=3)
+        self.assertEqual(square_instance.id, 89)
+        self.assertEqual(square_instance.size, 8)
+        self.assertEqual(square_instance.width, 8)
+        self.assertEqual(square_instance.height, 8)
+        self.assertEqual(square_instance.x, 3)
+
+    def test_update_with_kwargs_id_size_x_and_y(self):
+        '''Update square instance using kwargs (size=None, x=None, y=None, id).'''
+        
+        square_instance = Square(5)
+        square_instance.update(id=89, size=8, x=3, y=4)
+        self.assertEqual(square_instance.id, 89)
+        self.assertEqual(square_instance.size, 8)
+        self.assertEqual(square_instance.width, 8)
+        self.assertEqual(square_instance.height, 8)
+        self.assertEqual(square_instance.x, 3)
+        self.assertEqual(square_instance.y, 4)
 
 if __name__ == '__main__':
     unittest.main()
