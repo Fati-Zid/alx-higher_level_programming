@@ -89,5 +89,29 @@ class TestRectangle(unittest.TestCase):
         rectangle_instance.y = 6
         self.assertEqual(rectangle_instance.y, 6)
 
+    def test_area_of_rectangle_10_12(self):
+        '''Calculate area of rectangle with width=10 and height=12.'''
+
+        rectangle_instance = Rectangle(10, 12)
+        self.assertEqual(rectangle_instance.area(), 120)
+
+    def test_area_of_rectangle_12_10(self):
+        '''Calculate area of rectangle with width=12 and height=10.'''
+
+        rectangle_instance = Rectangle(12, 10)
+        self.assertEqual(rectangle_instance.area(), 120)
+
+    def test_area_of_rectangle_10_10(self):
+        '''Calculate area of rectangle with width=10 and height=10.'''
+
+        rectangle_instance = Rectangle(10, 10)
+        self.assertEqual(rectangle_instance.area(), 100)
+
+    def test_area_of_rectangle_10_12_with_x_and_y(self):
+        '''Calculate area of rectangle with width=10, height=12, x=4 and y=7.'''
+        
+        rectangle_instance = Rectangle(10, 12, 1, 3)
+        self.assertEqual(rectangle_instance.area(), 120)
+
 if __name__ == '__main__':
     unittest.main()
