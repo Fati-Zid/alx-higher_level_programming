@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 class Square:
     """Represents a square."""
     def __init__(self, size=0, position=(0, 0)):
@@ -8,8 +10,8 @@ class Square:
             position (tuple): The position of the square.
 
         Raises:
+            TypeError: If `size` is not an integer or `position` is not a tuple of 2 integers.
             ValueError: If `size` is less than 0.
-            TypeError: If `position` is not a tuple of two positive integers.
         """
         self.size = size
         self.position = position
@@ -27,8 +29,8 @@ class Square:
             value (int): The size of the square.
 
         Raises:
-            ValueError: If `value` is less than 0.
             TypeError: If `value` is not an integer.
+            ValueError: If `value` is less than 0.
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
@@ -49,12 +51,10 @@ class Square:
             value (tuple): The position of the square.
 
         Raises:
-            TypeError: If `value` is not a tuple of two positive integers.
+            TypeError: If `value` is not a tuple of 2 integers.
         """
-        if not isinstance(value, tuple) or len(value) != 2 or \
-           not all(isinstance(i, int) for i in value) or \
-           not all(i >= 0 for i in value):
-            raise TypeError("position must be a tuple of 2 positive integers")
+        if not isinstance(value, tuple) or len(value) != 2 or not all(isinstance(i, int) for i in value):
+            raise TypeError("position must be a tuple of 2 integers")
         self.__position = value
 
     def area(self):
@@ -66,7 +66,17 @@ class Square:
         if self.__size == 0:
             print()
             return
+
         for _ in range(self.__position[1]):
             print()
+
         for _ in range(self.__size):
             print(" " * self.__position[0] + "#" * self.__size)
+
+
+# Uncomment the following lines for testing
+# my_square = Square(3, (1, 1))
+# print(my_square.size)
+# print(my_square.area())
+# print(my_square.position)
+# my_square.my_print()
