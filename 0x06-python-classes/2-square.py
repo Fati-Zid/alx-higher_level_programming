@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Module for Square class
+File: 2-square.py
 """
-
 
 class Square:
     """
     Defines a square with a private instance attribute size.
     """
+
     def __init__(self, size=0):
         """
         Initializes a new instance of the Square class.
@@ -49,3 +49,12 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = value
+
+    def area(self):
+        """
+        Calculates and returns the area of the square.
+
+        Returns:
+            int: The area of the square.
+        """
+        return self.__size ** 2
