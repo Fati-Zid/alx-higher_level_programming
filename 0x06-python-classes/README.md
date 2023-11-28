@@ -1,6 +1,3 @@
-Certainly! Here's an updated version of the README.md to include the new tasks:
-
-```markdown
 # alx-higher_level_programming
 
 ## Fati-Zid's Python Class Project - 0x06. Python - Classes and Objects
@@ -65,4 +62,3 @@ To test and run the code for each task, execute the corresponding main script (e
 ---
 
 Feel free to pull request!
-```
