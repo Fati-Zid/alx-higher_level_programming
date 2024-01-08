@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// File: 0-javascript_is_amazing.js
+// Print string “Javascript is amazing”
 
-const myVar = "JavaScript is amazing";
+const myVar = "Javascript is amazing";
 console.log(myVar);
