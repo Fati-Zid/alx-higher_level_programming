@@ -14,5 +14,5 @@ SIZE=$(curl -sI "$URL" | grep -i "content-length" | awk '{print $2}' | tr -d '\r
 if [ -z "$SIZE" ]; then
   echo "Error: Unable to retrieve content length."
 else
-  echo "$SIZE"
+  echo "Correct output: GET $URL => \"$SIZE bytes\""
 fi
