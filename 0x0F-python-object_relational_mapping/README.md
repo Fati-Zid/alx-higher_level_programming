@@ -1,3 +1,1 @@
-## 0x0F-python-object_relational_mapping
-
-### Author: Fati-Zid
+0x0F-python-object_relational_mapping
