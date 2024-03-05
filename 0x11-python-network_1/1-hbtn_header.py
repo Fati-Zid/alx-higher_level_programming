@@ -9,14 +9,7 @@ import urllib.request
 
 if __name__ == "__main__":
     url = sys.argv[1]
+    headers = {X-Request-Id="Holberton school"}
     request = urllib.request.Request(url)
-    try:
-        with urllib.request.urlopen(request) as response:
-            x_request_id = response.getheader("X-Request-Id")
-            if x_request_id:
-                print(x_request_id)
-    except urllib.error.HTTPError as e:
-        if hasattr(e, 'headers') and 'X-Request-Id' in dict(e.headers):
-            print(e.headers['X-Request-Id'])
-        else:
-            print("No X-Request-Id found in HTTP headers.")
+    with urllib.request.urlopen(request) as response:
+        print(dict(response.headers).get("X-Request-Id"))
