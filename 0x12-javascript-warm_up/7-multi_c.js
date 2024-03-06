@@ -1,10 +1,8 @@
 #!/usr/bin/node
-// script that prints x times “C is fun”
-const argv = process.argv[2];
-if (isNaN(argv)) {
-  console.log('Missing number of occurrences');
+const newArgs = process.argv.slice(2);
+if (isNaN(newArgs[0]) === false) {
+  const n = parseInt(newArgs[0]);
+  for (let i = 0; i < n; i++) { console.log('C is fun'); }
 } else {
-  for (let i = 0; i <= parseInt(argv); i++) {
-    console.log('C is fun');
-  }
+  console.log('Missing number of occurrences');
 }
